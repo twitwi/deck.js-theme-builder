@@ -1,0 +1,262 @@
+
+@import "fontbox";
+
+@mixin base() {
+    .deck-container {
+        padding: 0;
+        margin: 0;
+        :first-of-type(.slide) {
+            padding: 0;
+            margin: 0;
+        }
+    }
+}
+
+@mixin size($base) {
+    /* sizes */
+    .deck-container {
+        font-size: $base;
+    }
+    h1 {
+        font-size: 1.75em;
+    }
+    h2 {
+        margin: 0;
+        padding: 0 10px;
+        font-size: 1.5em;
+    }
+}
+
+@mixin bullets() {
+    .deck-container {
+        >.slide>ul, >.slide>ol {
+            padding-right: .5em;
+            >li {
+                margin-top: 0.7em;
+                >ul, >ol {
+                    margin-top: 0.3em;
+                }
+            }
+        }
+    }
+}
+
+@mixin bullets-dense() {
+    .deck-container>.slide {
+        >ul, >ol {
+            >li ul, >li ol {
+                >li ul, >li ol {
+                    >li {    
+                        margin: 0.2em;
+                        font-size: 0.8em;
+                        margin-bottom: 0px;
+                    }
+                    margin-bottom: 0px;
+                }
+                >li {
+                    margin: 0.2em;
+                    font-size: 0.85em;
+                    margin-bottom: 0px;
+                }
+                line-height: 0.85em;
+                list-style: square outside none;
+                margin-bottom: 0px;
+            }
+            list-style: disc outside none;
+            li {
+                margin: 0;
+                padding: 0;
+                margin-top: 0.5em;
+                padding-left: 0em;
+            }
+        }
+    }
+}
+
+
+/* colors */
+@mixin light-colors($hue) {
+    .deck-container {
+        background: white;
+        color: adjust-hue(#100, $hue);
+    }
+    h1 {
+        color: #444;
+    }
+    h2 {
+        color: adjust-hue(#d00, $hue);
+        border-bottom-color:#ddd;
+    }
+    h3 {
+        color: #888;
+    }
+    pre {
+        border-color: #ccc;
+    }
+    code {
+        color: #888;
+    }
+    .deck-container {
+        >.slide>ul, >.slide>ol {
+            >li {
+                >ul, >ol {
+                    color: adjust-hue(#600, $hue);
+                    >li {
+                        >ul, >ol {
+                            color: adjust-hue(#444, $hue);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    a {
+        &, &:hover, &:focus, &:active, &:visited {
+            color: #00c;
+        }
+    }
+}
+
+@mixin dark-colors($hue) {
+    .deck-container {
+        background: black;
+        color: adjust-hue(#fee, $hue);
+    }
+    h1 {
+        color: #aaa;
+    }
+    h2 {
+        color: adjust-hue(#f55, $hue);
+        border-bottom-color: #333;
+    }
+    h3 {
+        color: #555;
+    }
+    pre {
+        border-color: #333;
+    }
+    code {
+        color: #888;
+    }
+    .deck-container {
+        >.slide>ul, >.slide>ol {
+            >li {
+                >ul, >ol {
+                    color: adjust-hue(#fbb, $hue);
+                    >li {
+                        >ul, >ol {
+                            color: adjust-hue(#ccc, $hue);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .deck-goto {
+        color: black;
+    }
+    .deck-menu .slide {
+        background: inherit !important;
+    }
+    .deck-menu>.slide {
+        background: #111 !important;
+        .no-touch & .slide:hover {
+            background: #335;
+        }
+    }
+    a {
+        &, &:hover, &:focus, &:active, &:visited {
+            color: #44f; /* fixed color for the links */
+        }
+    }
+}
+
+@mixin dark-swiss-colors() {
+    .deck-container {
+        background: black;
+        color: white;
+    }
+    h1 {
+        color:#666;
+    }
+    h2 {
+        color:#f55;
+        border-bottom-color:#222;
+    }
+    h3 {
+        color:#555;
+    }
+    pre {
+        border-color:#333;
+    }
+    code {
+        color:#888;
+    }
+    a {
+        &, &:hover, &:focus, &:active, &:visited {
+            color:#00c;
+        }
+    }
+}
+
+/* extras, all together for now */
+@mixin extras() {
+    blockquote {
+        font-size:2em;
+        font-style:italic;
+        padding:1em 2em;
+        color:#000;
+        border-left:5px solid #ccc;
+        
+        p {
+            margin:0;
+        }
+        
+        cite {
+            font-size:.5em;
+            font-style:normal;
+            font-weight:bold;
+            color:#888;
+        }
+    }
+    
+    a {
+        &, &:hover, &:focus, &:active, &:visited {
+            text-decoration:none;
+        }
+        
+        &:hover, &:focus {
+            text-decoration:underline;
+        }
+    }
+    
+    .deck-prev-link, .deck-next-link {
+        background:#ccc;
+        font-family:serif;
+        
+        &, &:hover, &:focus, &:active, &:visited {
+            color:#fff;
+        }
+        
+        &:hover, &:focus {
+            background:#c00;
+            text-decoration:none;
+        }
+    }
+    
+    .deck-menu {
+        >.slide {
+            /* matching toplevel slides... ideally, we would expect them to have an additional class */ 
+            background: #eee;
+        }
+        >.deck-current, >.deck-child-current {
+            outline-offset: 20px;
+            outline: 10px solid #f88;
+        }
+        .no-touch & .slide:hover {
+            outline-offset: 20px;
+            outline: 10px solid red;
+            background: #ddf;
+        }
+    }
+}
