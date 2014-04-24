@@ -4,9 +4,19 @@ import itertools
 
 def maybe(e):
     return ['', '-'+e]
+def readFile(path):
+    try:
+        return open(path, 'r').read()
+    except Exception, e:
+        return None
+
 def writeFile(path, content):
-    with open(path, 'w') as f:
+    tmp = ',,,,'
+    with open(tmp, 'w') as f:
         f.write(content)
+    if (readFile(tmp) != readFile(path)):
+        with open(path, 'w') as f:
+            f.write(content)
 
 format = '%s-%s%s%s.scss'
 
@@ -37,4 +47,4 @@ for g,c,draft,dense in itertools.product(gg, cc, oo1, oo2):
         '@include extras(); '
     ])
     writeFile(out, content)
-
+print('')
