@@ -3,7 +3,7 @@ SASSOPTS=--scss --style expanded
 
 all:
 	make _fontbox.scss
-	#make theme-variations
+	make theme-variations
 	make sass-generate
 
 sass-generate:
