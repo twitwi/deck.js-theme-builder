@@ -1,0 +1,13 @@
+@mixin font-draft() {
+    @import url(http://fonts.googleapis.com/css?family=Gloria+Hallelujah);
+    .deck-container {
+        font-family: 'Gloria Hallelujah', 'cursive', 'Arial', 'Sans';
+    }
+}
+
+@mixin font-exo-2() {
+    @import url(http://fonts.googleapis.com/css?family=Exo+2:400,400italic,700italic,700);
+    .deck-container {
+        font-family: 'Exo 2', 'Arial', 'Sans';
+    }
+}
