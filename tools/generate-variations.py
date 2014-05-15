@@ -18,7 +18,7 @@ def writeFile(path, content):
         with open(path, 'w') as f:
             f.write(content)
 
-format = '%s-%s%s%s.scss'
+format = '%s-%s%s%s%s.scss'
 
 gg = ['dark', 'light']
 cc = {
@@ -28,9 +28,10 @@ cc = {
 }
 oo1 = maybe('draft')
 oo2 = maybe('dense')
+oo3 = maybe('tiny')
 
-for g,c,draft,dense in itertools.product(gg, cc, oo1, oo2):
-    params = (g,c,draft,dense)
+for g,c,draft,dense,tiny in itertools.product(gg, cc, oo1, oo2, oo3):
+    params = (g,c,draft,dense,tiny)
     out = format % params
     print out
     content = "\n".join([
@@ -41,7 +42,7 @@ for g,c,draft,dense in itertools.product(gg, cc, oo1, oo2):
         '@import "theme-chunks";',
         '',
         '@include font%s();' % (draft if draft else '-exo-2'),
-        '@include size(26px);',
+        '@include size(%s);' % ('23px' if tiny else '26px'),
         '@include bullets%s();' % (dense),
         '@include %s-colors(%s);' % (g, cc[c]),
         '@include extras(); '
