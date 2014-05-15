@@ -4,7 +4,7 @@
   font-weight: 400;
   src: local('Gloria Hallelujah'), local('GloriaHallelujah'), url(local-fonts/CA1k7SlXcY5kvI81M_R28Y5mSNQmgKshuii2YddNQzE.woff) format('woff'), url(http://themes.googleusercontent.com/static/fonts/gloriahallelujah/v5/CA1k7SlXcY5kvI81M_R28Y5mSNQmgKshuii2YddNQzE.woff) format('woff');
 }
-    .deck-container {        font-family: 'Gloria Hallelujah', 'cursive', 'Arial', 'Sans';    }}@mixin font-exo-2() {@font-face {
+    .timekeeper { font-family: monospace; }    .deck-container {        font-family: 'Gloria Hallelujah', 'cursive', 'Arial', 'Sans';    }}@mixin font-exo-2() {@font-face {
   font-family: 'Exo 2';
   font-style: normal;
   font-weight: 400;
@@ -28,4 +28,4 @@
   font-weight: 700;
   src: local('Exo 2 Bold Italic'), local('Exo2-BoldItalic'), url(local-fonts/Rpc1bsIIcqFfucX8mi4y5hsxEYwM7FgeyaSgU71cLG0.woff) format('woff'), url(http://themes.googleusercontent.com/static/fonts/exo2/v1/Rpc1bsIIcqFfucX8mi4y5hsxEYwM7FgeyaSgU71cLG0.woff) format('woff');
 }
-    .deck-container {        font-family: 'Exo 2', 'Arial', 'Sans';    }}
+    .timekeeper { font-family: monospace; }    .deck-container {        font-family: 'Exo 2', 'Arial', 'Sans';    }}
