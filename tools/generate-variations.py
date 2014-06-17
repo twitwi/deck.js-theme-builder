@@ -23,7 +23,7 @@ format = '%s-%s%s%s%s.scss'
 gg = ['dark', 'light']
 cc = {
     'red': 0, 'yellow': 60,
-    'green': 120, 'cian': 180,
+    'green': 120, 'cyan': 180,
     'blue': 240, 'pink': 300
 }
 oo1 = maybe('draft')
