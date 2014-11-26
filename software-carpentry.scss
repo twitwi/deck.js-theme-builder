@@ -8,21 +8,24 @@
 @include reserve-h2-space();
 @include center-h2();
 
-@include bullets();
+@include bullets-dense();
 @include extras();
 
 @mixin swc-custom($swc) {
+    
+    $textswc: darken($swc, 10%);
+    
     .deck-container {
         background: white;
-        color: desaturate($swc, 15%);
+        color: $textswc;
         font-weight: normal;
 
-        &>.slide {
+        &:not(.no-status)>.slide {
             padding-bottom: 0px;
             padding: 160px 50px;
             text-align: justify;
             background: url(../img/software-carpentry-banner.png) bottom 10px left 10px no-repeat;
-            background-size: 200px;
+            background-size: 150px;
             /*
             &>ul, &>ol {
                 padding: 0;
@@ -69,16 +72,16 @@
         float: right;
         width: 50%;
     }
-    h1 {
+    h1, h2 {
         color: $swc;
         font-size: 70px;
         line-height: 1em;
         font-weight: normal;
     }
     h2 {
-        color: $swc;
         border-bottom: none;
-        margin-top: 50px;
+        font-size: 60px;
+        margin-top: 60px;
     }
     h3 {
         color: #888;
@@ -92,7 +95,7 @@
     a {
         transition: color 200ms;
         &, &:focus, &:active, &:visited {
-            color: $swc;
+            color: $textswc;
         }
         &:hover {
             color: lighten($swc, 25%);
@@ -101,6 +104,7 @@
     }
     .title-slide {
         h1 {
+            padding-bottom: 50px;
             bottom: 50%;
             top: auto;
             height: auto;
