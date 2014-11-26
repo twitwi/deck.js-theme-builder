@@ -27,6 +27,23 @@
     }
 }
 
+@mixin reserve-h2-space() {
+    .deck-container>.slide {
+        padding-top: 3em;
+    }
+    h2 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+}
+@mixin center-h2() {
+    h2 {
+        text-align: center;
+    }
+}
+
 @mixin bullets() {
     .deck-container {
         >.slide>ul, >.slide>ol {

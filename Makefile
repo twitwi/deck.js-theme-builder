@@ -6,6 +6,10 @@ all:
 	make theme-variations
 	make sass-generate
 
+custom:
+	make _fontbox.scss
+	make sass-generate
+
 sass-generate:
 	sass --update ${SASSOPTS} .
 
