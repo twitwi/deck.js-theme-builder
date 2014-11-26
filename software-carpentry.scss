@@ -14,7 +14,8 @@
 @mixin swc-custom($swc) {
     
     $textswc: darken($swc, 10%);
-    
+    $darkertextswc: darken($textswc, 10%);
+
     .deck-container {
         background: white;
         color: $textswc;
@@ -67,10 +68,50 @@
     .slide .clearboth {
         clear: both;
     }
-
     .slide .right {
         float: right;
         width: 50%;
+    }
+    div.figure p.caption {
+        color: $darkertextswc;
+        text-align: center;
+        font-size: 80%;
+    }
+    .slide .darker {
+        color: $darkertextswc;
+    }
+    .slide.media-left {
+        &>*:not(h2):not(img):not(blockquote):not(pre):not(div), &>div:not(.figure) {
+            margin-left: 400px;
+        }
+        &>div.figure, &>img, &>blockquote, &>pre {
+            float: left;
+            width: 50%;
+            box-sizing: border-box;
+        }
+    }
+    .slide.media-right {
+        &>*:not(h2):not(img):not(blockquote):not(pre):not(div), &>div:not(.figure) {
+            margin-right: 400px;
+        }
+        &>div.figure, &>img, &>blockquote, &>pre {
+            float: right;
+            width: 50%;
+            box-sizing: border-box;
+        }
+    }
+    .slide.image-stripes {
+        &>div {
+            overflow: hidden;
+            align-content: center;
+        }
+        img {
+            height: 400px;
+            max-width: none;
+            position: relative;
+            left: 50%;
+            transform: translate(-50%, 0);
+        }
     }
     h1, h2 {
         color: $swc;
@@ -81,7 +122,11 @@
     h2 {
         border-bottom: none;
         font-size: 60px;
-        margin-top: 60px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 480px;
+        top: auto;
     }
     h3 {
         color: #888;
@@ -91,6 +136,9 @@
     }
     code {
         color: #888;
+    }
+    blockquote {
+        font-size: 20px;
     }
     a {
         transition: color 200ms;
