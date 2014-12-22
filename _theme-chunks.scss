@@ -76,16 +76,20 @@
                     margin-bottom: 0px;
                 }
                 line-height: 0.85em;
-                list-style: square outside none;
                 margin-bottom: 0px;
             }
-            list-style: disc outside none;
             li {
                 margin: 0;
                 padding: 0;
                 margin-top: 0.5em;
                 padding-left: 0em;
             }
+        }
+        >ul {
+            >li ul {
+                list-style: square outside none;
+            }
+            list-style: disc outside none;
         }
     }
 }
