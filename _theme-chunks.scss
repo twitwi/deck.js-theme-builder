@@ -37,6 +37,11 @@
         left: 0;
         width: 100%;
     }
+    .deck-container>.slide {
+        &.noh2, &.noH2 {
+            padding-top: 0;
+        }
+    }
 }
 @mixin center-h2() {
     h2 {
