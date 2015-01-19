@@ -3,10 +3,52 @@
 @import "reset";
 @import "theme-chunks";
 
+@mixin swc-size($base) {
+    /* sizes */
+    .deck-container {
+        font-size: $base;
+    }
+    h1 {
+        font-size: 1.75em;
+    }
+    .level2 h1, h2 {
+        margin: 0;
+        padding: 0 10px;
+        font-size: 1.5em;
+        /* undoing strange thing from _reset */
+        -webkit-transform:none;
+        -moz-transform:none;
+        -ms-transform:none;
+        -o-transform:none;
+        transform:none;
+    }
+}
+@mixin swc-reserve-h2-space() {
+    .deck-container>.slide {
+        padding-top: 3em;
+    }
+    .level1 h1, h2 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+    .deck-container>.slide {
+        &.noh2, &.noH2 {
+            padding-top: 0;
+        }
+    }
+}
+@mixin swc-center-h2() {
+    .level2 h1, h2 {
+        text-align: center;
+    }
+}
+
 @include font-montserrat();
-@include size(30px);
-@include reserve-h2-space();
-@include center-h2();
+@include swc-size(30px);
+@include swc-reserve-h2-space();
+@include swc-center-h2();
 
 @include bullets-dense();
 @include extras();
@@ -68,7 +110,7 @@
         float: right;
         width: 50%;
     }
-    div.figure p.caption {
+    figure p.caption {
         color: $darkertextswc;
         text-align: center;
         font-size: 80%;
@@ -77,20 +119,20 @@
         color: $darkertextswc;
     }
     .slide.media-left {
-        &>*:not(h2):not(img):not(blockquote):not(pre):not(div), &>div:not(.figure) {
+        &>*:not(h2):not(h1):not(img):not(blockquote):not(pre):not(div):not(figure)  {
             margin-left: 400px;
         }
-        &>div.figure, &>img, &>blockquote, &>pre {
+        &>figure, &>img, &>blockquote, &>pre {
             float: left;
             width: 50%;
             box-sizing: border-box;
         }
     }
     .slide.media-right {
-        &>*:not(h2):not(img):not(blockquote):not(pre):not(div), &>div:not(.figure) {
+        &>*:not(h2):not(h1):not(img):not(blockquote):not(pre):not(div):not(figure) {
             margin-right: 400px;
         }
-        &>div.figure, &>img, &>blockquote, &>pre {
+        &>figure, &>img, &>blockquote, &>pre {
             float: right;
             width: 50%;
             box-sizing: border-box;
@@ -115,7 +157,7 @@
         line-height: 1em;
         font-weight: normal;
     }
-    h2 {
+    .level2 h1, h2 {
         border-bottom: none;
         font-size: 60px;
         position: absolute;
@@ -146,7 +188,7 @@
             text-decoration: none;
         }
     }
-    .slide.title-slide {
+    .slide.title-slide, .slide.level1 {
         text-align: center;
         padding-top: 325px;
         h1 {
