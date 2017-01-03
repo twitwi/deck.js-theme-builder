@@ -21,13 +21,14 @@ with open(input, 'r') as f, open(output, 'w') as outputF:
             remote = readURL(url).decode('utf-8')
             def processUrlInRemote(x):
                 fonturl = x.group(1)
+                protocolrelatived = re.sub(r'url\(https?://', r'url(//', x.group(0))
                 format = x.group(2)
                 fontfilename = re.sub(r'.*/', '', fonturl)
                 fontfilecontent = readURL(fonturl)
                 targetFile = 'local-fonts/'+fontfilename
                 writeFile(targetFile, fontfilecontent)
                 print('GOT:'+fontfilename)
-                return 'url({}) {}, {}'.format(targetFile, format, x.group(0))
+                return 'url({}) {}, {}'.format(targetFile, format, protocolrelatived)
             updatedRemote = re.sub(r'url\(([^)]*)\) +(format\([^)]*\))', processUrlInRemote, remote)
             outputF.write(updatedRemote)
         else:
